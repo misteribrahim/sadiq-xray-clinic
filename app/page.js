@@ -6,6 +6,19 @@ import { clinic, services } from '../lib/data';
 export default function Home() {
   return (
     <>
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'MedicalClinic',
+    name: clinic.name,
+    url: 'https://sadiqxray.com',
+    telephone: clinic.phone,
+    address: { '@type': 'PostalAddress', streetAddress: clinic.address, addressCountry: 'PK' },
+    medicalSpecialty: 'Radiology',
+    employee: { '@type': 'Person', name: clinic.doctor },
+  }) }}
+/>
       <nav>
         <Link href="/" className="logo">{clinic.name}</Link>
         <div><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
